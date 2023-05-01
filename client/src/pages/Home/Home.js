@@ -1,26 +1,37 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux' 
+
 import * as api from "../../api"
+import { getNotes } from '../../actions/notes'
 
 const Home = () => {
+  const dispatch = useDispatch()
   const [title, setTitle] = useState("")
   const [note, setNote] = useState("")
   const [notesList, setNotesList] = useState([])
+  
+  const {notes} = useSelector((state) => state.notes)
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const {data} = await api.fetchNotes()
+  //     const dat = data.data
+  //     // console.log(data)
+  //     // console.log(dat)
+  //     setNotesList(dat)
+  //     // console.log("why")
+  //     // console.log(notesList)
+  //   }
+  //   getData()
+  // }, [])
+  
   useEffect(() => {
-    const getData = async () => {
-      const {data} = await api.fetchNotes()
-      const dat = data.data
-      // console.log(data)
-      // console.log(dat)
-      setNotesList(dat)
-      // console.log("why")
-      // console.log(notesList)
-    }
-    getData()
-  }, [])
+    dispatch(getNotes("check"))
+  },[])
   
   const checknotes = () => {
-    console.log("click")
-    console.log(notesList)
+    console.log("useeffect")
+    console.log(notes)
   }
 
   const handleSubmit = (async(event) => {
@@ -30,21 +41,20 @@ const Home = () => {
   })
 
   const Ok = () => {
-    if(notesList) {
-      console.log('oke')
-      console.log(notesList)
+    if(notes) {
+      // console.log('oke')
+      // console.log(notesList)
       return(
-        <div>
-          {/* {JSON.stringify(notesList)} */}
-          {notesList.map((item) => 
+        <div className='col l3'>   
+          {notes.map((item) => 
             <p>{item.title}</p>
           )}
         </div>
       )
     } else {
-      console.log('there')
+      // console.log('there')
       return(
-        <div>
+        <div className='col l3'>
           <p>hello</p>
           <p>The list of notes have not loaded yet</p>
         </div>
@@ -53,16 +63,11 @@ const Home = () => {
   }
   
   return (
-    <div className='card-panel row'>
+    <div className='row'>
       <div className='card-panel blue-grey darken-1 col l3'>
-        <h6>Existing notes:</h6>
-        <div className='col l3'> 
+        <h5 className='card-title'>Existing notes:</h5>
           <button onClick={checknotes}>ok</button>
-          {/* {notesList?.map((not) => {
-            <p>{not.title}</p>
-          })} */}
           <Ok />
-        </div>
       </div>
       <div className='card-panel blue-grey lighten-1 col l9'>
         <form onSubmit={handleSubmit}>
