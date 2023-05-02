@@ -1,4 +1,4 @@
-export default (state = {}, action) => {
+export default (state={currentNote:{NaN}}, action) => {
     switch(action.type) {
         case "FETCH_ALL":
             return{
@@ -6,7 +6,7 @@ export default (state = {}, action) => {
             }
         case "FETCH_ONE":
             return {
-                ...state
+                ...state, currentNote:action.payload.data
             }
         default:
             return state
