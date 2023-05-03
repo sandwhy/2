@@ -1,0 +1,10 @@
+.bg {
+    height: 100vh;
+    background-color: var(--neutral-col);
+}
+
+.page1 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}

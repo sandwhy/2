@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux' 
 
+import "./styles.css"
 import { NotesList, Loading, NotingSection, Navbar } from '../components'
 
 const Home = () => {
   return (
-    <div className='row light-blue lighten-5'>
+    <div className='bg'>
       <Navbar />
-      <NotesList />
-      <NotingSection />
+      <div className='row page1'>
+        <NotingSection />
+      </div>
     </div>
   )
 

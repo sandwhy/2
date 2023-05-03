@@ -1,14 +1,13 @@
 import React from 'react'
 
+import "./styles.css"
+
 const Navbar = () => {
   return (
-    <nav className='transparent'>
-        <div className='nav-wrapper'>
-
-        </div>
-        <div className='nav-content'>
-            
-        </div>
+    <nav className='nav'>
+      <div className='innav '>
+        
+      </div>
     </nav>
   )
 }

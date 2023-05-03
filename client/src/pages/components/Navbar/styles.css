@@ -1,0 +1,10 @@
+.nav {
+    position: absolute;
+    border-radius: 0 0 1rem 1rem;
+    background-color: var(--main-col);
+}
+
+.innav {
+    width: 80vw;
+    
+}

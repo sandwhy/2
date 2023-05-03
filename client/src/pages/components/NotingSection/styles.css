@@ -1,0 +1,44 @@
+.noting-section {
+    display: block;
+    height: 78vh;
+    border-radius: 1rem;
+    background-color: var(--main-col);
+}
+
+form {
+    height: 100%;
+    padding: 1rem 3.5rem;
+}
+
+.title_input {
+    height: 40%;
+}
+
+.title_input {
+    font-family: "jost", sans-serif;
+    font-weight: 500 !important;
+    font-size: 2rem !important;
+    color: white;
+    height: 20%;
+}
+
+textarea {
+    height: 78%; 
+    width: 100%;
+    border-style: none;
+    border-color: Transparent;
+    overflow: auto;
+    outline: none;
+
+    color: white;
+    font-family: "jost", sans-serif;
+    font-size: 1.3rem;
+
+    padding-top: 1rem;
+}
+
+.button {
+    position: relative;
+    bottom: 0;
+    background-color: var(--accent-col);
+}
