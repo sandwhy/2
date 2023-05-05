@@ -2,13 +2,27 @@ import mongoose from "mongoose"
 import NoteInstance from "../models/note.js"
 
 export const saveCreateNote = async (req,res) => {
+    console.log("going to the place")
     try {
-        const note = req.body
-        const newNote = new NoteInstance({...note, createdAt:new Date().toISOString()})
+        const {does, data} = req.body
+        if (does == "create") {
+            const newNote = new NoteInstance({...data})
+            
+            console.log(newNote) 
+            
+            await newNote.save()
+            var dat = "check"
+            console.log(dat)
+        } else if (does == "save") {
+            console.log("checking dataid", data, data.id)
+            const filter = {_id: data.id}
+            const update = data
+
+            var dat = await NoteInstance.findOneAndUpdate(filter, update, { new: true})
+            console.log(dat)
+        }
         
-        console.log(newNote)
-    
-        await newNote.save()
+        res.status(200).json({data:dat})
     } catch (error) {
         res.status(404).json({message:error.message})
     }

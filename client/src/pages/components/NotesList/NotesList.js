@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import "./styles.css"
@@ -9,30 +9,49 @@ function NotesList() {
     const dispatch = useDispatch()
     const {notes, currentNote} = useSelector((state) => state.notes)
 
+    // const click2 = (id) => {
+    //     console.log("checking the id", id)
+    //     const elmnt = document.getElementById(id)
+    //     console.log(elmnt,elmnt.id)
+    // }
+
+    const click3 = () => {
+        const section = document.getElementById("section")
+
+        if(section.classList.contains("inactive")) {
+            section.classList.remove('inactive')
+        } else {
+            section.classList.add("inactive")
+        }
+    }
+
     useEffect(() => {
         dispatch(getNotes())
       },[])
 
     const click = (id) => {
-        // console.log(id)
         dispatch(getNote(id))
-        // console.log("note", currentNote )
     }
     
     if(notes) {
         return(
-        <div className='card light-blue lighten-5 col l2 offset-l1'>
-            <div className='card-content'>
-                <span className='card-title'>Existing notes:</span>
-                {notes.map((item) => 
-                    <button className='btn-flat waves-effect waves-black' key={item._id} onClick={() => click(item._id)}>{item.title.trim()}</button>
-                )}
+            <div className='system'>
+                <div id="section" className='back inactive'>
+                    <div className='contain'>
+                        <h6 className=''>Existing notes:</h6>
+                        {notes.map((item) => 
+                            <li key={item._id} className='button_container'>
+                                <button className='btn-flat' id={item._id} onClick={() => click(item._id)}>{item.title.trim()}</button>
+                            </li>
+                        )}
+                    </div>
+                </div>
+                <div className='sidenav_button' onClick={click3}></div>
             </div>
-        </div>
         )
     } else {
         return(
-            <div className='card light-blue lighten-5 col l2 offset-l1'>
+            <div className='back '>
                 <Loading />
             </div>
         )

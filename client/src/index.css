@@ -1,3 +1,9 @@
+* {
+  border: 0;
+  margin: 0;
+  
+}
+
 :root {
   --neutral-col: #F5EFE6;
   --main-col: #AEBDCA;

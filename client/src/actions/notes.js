@@ -21,3 +21,14 @@ export const getNote = (id) => async (dispatch) => {
         console.log("from getnote,", error)
     }
 }
+
+export const saveCreateNote = (dos, dat) => async (dispatch) => {
+    console.log("its going here")
+    try {
+        const params = {does: dos, data: dat}
+        const resp = await api.saveCreateNote(params)
+
+    } catch (error) {
+        console.log("from saveCreateNote,", error)
+    }
+}

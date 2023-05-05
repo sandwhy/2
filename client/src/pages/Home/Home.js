@@ -8,7 +8,8 @@ const Home = () => {
   return (
     <div className='bg'>
       <Navbar />
-      <div className='row page1'>
+      <div className='page1'>
+        <NotesList />
         <NotingSection />
       </div>
     </div>

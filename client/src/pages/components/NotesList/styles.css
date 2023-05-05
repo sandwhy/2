@@ -1,3 +1,32 @@
-.card-content .btn-flat {
+.system {
+    display: flex;
+    height: 78vh;
+}
+
+.back {
+    width: 25vw;
+    margin-left: 0;
+    height: 78vh;
+    border-radius: 1rem 0 1rem 1rem;
+    background-color: var(--main-col);
+    transition: display 5ms;
+}
+
+.button_container {
     display: block;
+}
+
+.contain {
+    padding: 1rem;
+}
+
+.sidenav_button{
+    height: 80px;
+    width: 20px;
+    background-color: var(--accent-col);
+    border-radius: 0 1rem 1rem 0;
+}
+
+.inactive {
+    display:none
 }
