@@ -1,9 +1,9 @@
-.system {
+.side-nav {
     display: flex;
     height: 78vh;
 }
 
-.back {
+.side-nav__body {
     width: 25vw;
     margin-left: 0;
     height: 78vh;
@@ -12,15 +12,41 @@
     transition: display 5ms;
 }
 
-.button_container {
-    display: block;
-}
-
-.contain {
+.side-nav__container {
     padding: 1rem;
 }
 
-.sidenav_button{
+.side-nav__container__header {
+    margin:0 0 1rem 0;
+    color: aliceblue;
+    font-family: "jost", sans-serif;
+    font-size: 2rem;
+}
+
+.side-nav__container__li {
+    list-style-type: none;
+    display: block;
+}
+
+.side-nav__container__button {
+    width: 100%;
+    height: 3rem;
+    
+    margin:.5rem 0;
+    text-align: left;
+
+    border-radius: 1rem;
+    background-color: rgba(0,0,0, 0.1);
+    
+    color: aliceblue;
+    font-family: "jost", sans-serif;
+    font-size: 1.1rem;
+}
+.side-nav__container__button:hover {
+    background-color: rgba(0,0,0, 0.4);
+}
+
+.side-nav__toggle-button {
     height: 80px;
     width: 20px;
     background-color: var(--accent-col);
@@ -29,4 +55,8 @@
 
 .inactive {
     display:none
+}
+
+.highlight {
+    background-color: rgba(0,0,0, 0.4);
 }

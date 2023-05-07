@@ -14,14 +14,11 @@ form {
 }
 
 .title_input {
-    height: 40%;
-}
-
-.title_input {
-    font-family: "jost", sans-serif;
+    font-family: "jost", sans-serif ;
     font-weight: 500 !important;
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     color: white;
+    background-color: rgba(0,0,0,0);
     height: 20%;
 }
 
@@ -34,8 +31,8 @@ textarea {
     outline: none;
 
     color: white;
-    font-family: "jost", sans-serif;
-    font-size: 1.3rem;
+    font-family: "jost", sans-serif ;
+    font-size: 2rem;
 
     padding-top: 1rem;
 }
@@ -45,3 +42,4 @@ textarea {
     bottom: 0;
     background-color: var(--accent-col);
 }
+

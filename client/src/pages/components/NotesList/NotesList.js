@@ -15,7 +15,7 @@ function NotesList() {
     //     console.log(elmnt,elmnt.id)
     // }
 
-    const click3 = () => {
+    const sidenav_click = () => {
         const section = document.getElementById("section")
 
         if(section.classList.contains("inactive")) {
@@ -31,22 +31,30 @@ function NotesList() {
 
     const click = (id) => {
         dispatch(getNote(id))
+        const selct2 = document.getElementsByClassName("side-nav__container__button")
+        var arr = Array.prototype.slice.call(selct2)
+        arr.forEach(element => {
+            element.classList.remove("highlight")
+        });
+        const selct = document.getElementById(id)
+        console.log(selct)
+        selct.classList.add("highlight")
     }
     
     if(notes) {
         return(
-            <div className='system'>
-                <div id="section" className='back inactive'>
-                    <div className='contain'>
-                        <h6 className=''>Existing notes:</h6>
+            <div className='side-nav'>
+                <div id="section" className='side-nav__body'>
+                    <div className='side-nav__container'>
+                        <div className='side-nav__container__header'>Existing notes:</div>
                         {notes.map((item) => 
-                            <li key={item._id} className='button_container'>
-                                <button className='btn-flat' id={item._id} onClick={() => click(item._id)}>{item.title.trim()}</button>
+                            <li key={item._id} className='side-nav__container__li'>
+                                <button className='btn-flat side-nav__container__button' id={item._id} onClick={() => click(item._id)}>{item.title.trim()}</button>
                             </li>
                         )}
                     </div>
                 </div>
-                <div className='sidenav_button' onClick={click3}></div>
+                <div className='side-nav__toggle-button' onClick={sidenav_click}></div>
             </div>
         )
     } else {
