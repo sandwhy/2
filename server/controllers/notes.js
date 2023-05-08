@@ -11,8 +11,8 @@ export const saveCreateNote = async (req,res) => {
             console.log(newNote) 
             
             await newNote.save()
-            var dat = "check"
-            console.log(dat)
+            var dat = newNote
+            console.log("new note",dat)
         } else if (does == "save") {
             console.log("checking dataid", data, data.id)
             const filter = {_id: data.id}

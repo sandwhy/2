@@ -9,11 +9,11 @@ function NotesList() {
     const dispatch = useDispatch()
     const {notes, currentNote} = useSelector((state) => state.notes)
 
-    // const click2 = (id) => {
-    //     console.log("checking the id", id)
-    //     const elmnt = document.getElementById(id)
-    //     console.log(elmnt,elmnt.id)
-    // }
+    const newnoteclk = () => {
+        console.log("click")
+        dispatch({type:"RESET_NOTE"})
+        console.log(currentNote)
+    }
 
     const sidenav_click = () => {
         const section = document.getElementById("section")
@@ -27,7 +27,7 @@ function NotesList() {
 
     useEffect(() => {
         dispatch(getNotes())
-      },[])
+      },[notes])
 
     const click = (id) => {
         dispatch(getNote(id))
@@ -47,6 +47,9 @@ function NotesList() {
                 <div id="section" className='side-nav__body'>
                     <div className='side-nav__container'>
                         <div className='side-nav__container__header'>Existing notes:</div>
+                        <li key="newnotebtn" className='side-nav__container__li'>
+                            <button className='btn-flat side-nav__container__button new-note-button' onClick={newnoteclk}>+</button>
+                        </li>
                         {notes.map((item) => 
                             <li key={item._id} className='side-nav__container__li'>
                                 <button className='btn-flat side-nav__container__button' id={item._id} onClick={() => click(item._id)}>{item.title.trim()}</button>
@@ -59,8 +62,12 @@ function NotesList() {
         )
     } else {
         return(
-            <div className='back '>
-                <Loading />
+            <div className='side-nav'>
+                <div className='side-nav__body'>
+                    <div className='side-nav__convainer'>
+                        <Loading />
+                    </div>
+                </div>
             </div>
         )
     }

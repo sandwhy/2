@@ -8,6 +8,10 @@ export default (state={currentNote:{}}, action) => {
             return {
                 ...state, currentNote:action.payload.data
             }
+        case "RESET_NOTE":
+            return {
+                ...state, currentNote:{}
+            }
         default:
             return state
     }
