@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import "./styles.css"
 import { saveCreateNote, getNotes } from '../../../actions/notes'
+import {Loading, Popups} from ".."
 
 const NotingSection = () => {
   const dispatch = useDispatch()
   const {currentNote} = useSelector((state) => state.notes)
   const [noteDat, setNoteDat] = useState({_id: "", title:"", note:""})
   const [dos, setDos] = useState("")
+  const [pops, setPops] = useState(true)
 
   useEffect(() => {
     setNoteDat({"id": currentNote._id?currentNote._id:"", "title": currentNote.title?currentNote.title:"", "note": currentNote.note?currentNote.note:""})
@@ -18,15 +20,19 @@ const NotingSection = () => {
     } else {
       setDos("create")
     }
-
   }, [currentNote])
+
+  const click = () => {
+    console.log("click,", pops)
+    setPops(!pops)
+  }
 
   const handleSubmit = (async(event) => {
     event.preventDefault()
     const dat = {"id": currentNote._id, "title": noteDat.title, "note": noteDat.note}
 
-    dispatch(saveCreateNote(dos, dat))
-    dispatch(getNotes)
+    await dispatch(saveCreateNote(dos, dat))
+    await dispatch(getNotes())
   })
 
   return (
@@ -38,6 +44,9 @@ const NotingSection = () => {
           <button className='button btn' type="submit" value="Submit">{dos}</button>
         </div>
       </form>
+      <button className='buttn btn' onClick={click}>check pops</button>
+      {/* <Popups />
+      <Loading /> */}
     </div>
   )
 }

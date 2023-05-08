@@ -6,13 +6,16 @@ import { getNotes, getNote } from '../../../actions/notes'
 import { Loading } from '..'
 
 function NotesList() {
+    console.log("LIST RENDER")
+
     const dispatch = useDispatch()
-    const {notes, currentNote} = useSelector((state) => state.notes)
+    const {notes} = useSelector((state) => state.notes)
 
     const newnoteclk = () => {
-        console.log("click")
         dispatch({type:"RESET_NOTE"})
-        console.log(currentNote)
+    }
+    const checklist = () => {
+        console.log("notes here,", notes)
     }
 
     const sidenav_click = () => {
@@ -27,7 +30,8 @@ function NotesList() {
 
     useEffect(() => {
         dispatch(getNotes())
-      },[notes])
+        console.log("deploying effect")
+      },[])
 
     const click = (id) => {
         dispatch(getNote(id))
@@ -37,7 +41,6 @@ function NotesList() {
             element.classList.remove("highlight")
         });
         const selct = document.getElementById(id)
-        console.log(selct)
         selct.classList.add("highlight")
     }
     
@@ -55,6 +58,9 @@ function NotesList() {
                                 <button className='btn-flat side-nav__container__button' id={item._id} onClick={() => click(item._id)}>{item.title.trim()}</button>
                             </li>
                         )}
+                        <li key="newn" className='side-nav__container__li'>
+                            <button className='btn-flat side-nav__container__button new-note-button' onClick={checklist}>+</button>
+                        </li>
                     </div>
                 </div>
                 <div className='side-nav__toggle-button' onClick={sidenav_click}></div>

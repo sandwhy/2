@@ -1,4 +1,4 @@
-export default (state={currentNote:{}}, action) => {
+export default (state={notes:[],currentNote:{}}, action) => {
     switch(action.type) {
         case "FETCH_ALL":
             return{

@@ -1,11 +1,12 @@
 import * as api from "../api"
 
 export const getNotes = () => async(dispatch) => {
+    // console.log("getting notes")
     try {
         const {data} = await api.fetchNotes()
         // console.log(check)
-        // console.log("cling data from actions")
-        // console.log(data.data)
+        console.log("cling data from actions", data.data)
+
         // const dat = "ok"
         dispatch({type:"FETCH_ALL", payload:data})
     } catch (error) {
@@ -13,6 +14,7 @@ export const getNotes = () => async(dispatch) => {
     }
 }
 export const getNote = (id) => async (dispatch) => {
+    console.log("getting notes local00000")
     try {
         const {data} = await api.fetchNote(id)
         // console.log("checking get note data:", data)
@@ -26,7 +28,6 @@ export const saveCreateNote = (dos, dat) => async (dispatch) => {
     try {
         const params = {does: dos, data: dat}
         const {data} = await api.saveCreateNote(params)
-        console.log(data)
         dispatch({type:"FETCH_ONE", payload:data})
     } catch (error) {
         console.log("from saveCreateNote,", error)

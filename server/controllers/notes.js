@@ -29,7 +29,7 @@ export const saveCreateNote = async (req,res) => {
 } 
 
 export const getNotes = async (req,res) => {
-    // console.log("its getting here")
+    console.log("getting notes")
     try {
         const notes = await NoteInstance.find()
         // const notes = "ok"
