@@ -6,8 +6,6 @@ import { getNotes, getNote } from '../../../actions/notes'
 import { Loading } from '..'
 
 function NotesList() {
-    console.log("LIST RENDER")
-
     const dispatch = useDispatch()
     const {notes} = useSelector((state) => state.notes)
 
@@ -58,9 +56,9 @@ function NotesList() {
                                 <button className='btn-flat side-nav__container__button' id={item._id} onClick={() => click(item._id)}>{item.title.trim()}</button>
                             </li>
                         )}
-                        <li key="newn" className='side-nav__container__li'>
+                        {/* <li key="newn" className='side-nav__container__li'>
                             <button className='btn-flat side-nav__container__button new-note-button' onClick={checklist}>+</button>
-                        </li>
+                        </li> */}
                     </div>
                 </div>
                 <div className='side-nav__toggle-button' onClick={sidenav_click}></div>

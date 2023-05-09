@@ -16,15 +16,15 @@ const NotingSection = () => {
     setNoteDat({"id": currentNote._id?currentNote._id:"", "title": currentNote.title?currentNote.title:"", "note": currentNote.note?currentNote.note:""})
 
     if (currentNote._id) {
-      setDos("save")
+      setDos("Save")
     } else {
-      setDos("create")
+      setDos("Create")
     }
   }, [currentNote])
 
   const click = () => {
-    console.log("click,", pops)
     setPops(!pops)
+    console.log("click,", pops)
   }
 
   const handleSubmit = (async(event) => {
@@ -45,8 +45,17 @@ const NotingSection = () => {
         </div>
       </form>
       <button className='buttn btn' onClick={click}>check pops</button>
-      {/* <Popups />
-      <Loading /> */}
+      <div>{pops}</div>
+      {pops && <Popups
+        ver="passive"
+        message={`Note ${dos}d`}
+        set={click}
+      />}
+      {/* <Popups
+        ver="passive"
+        message={`Note ${dos}d`}
+        set={click}
+      /> */}
     </div>
   )
 }

@@ -5,7 +5,7 @@ export const saveCreateNote = async (req,res) => {
     console.log("going to the place")
     try {
         const {does, data} = req.body
-        if (does == "create") {
+        if (does == "Create") {
             const newNote = new NoteInstance({...data})
             
             console.log(newNote) 
@@ -13,7 +13,7 @@ export const saveCreateNote = async (req,res) => {
             await newNote.save()
             var dat = newNote
             console.log("new note",dat)
-        } else if (does == "save") {
+        } else if (does == "Save") {
             console.log("checking dataid", data, data.id)
             const filter = {_id: data.id}
             const update = data
