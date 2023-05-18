@@ -23,8 +23,13 @@
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-HTML, body {
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
+.bg {
+  height: 100vh;
+  background-color: var(--neutral-col);
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }

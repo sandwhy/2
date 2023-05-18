@@ -1,17 +1,14 @@
 import React from 'react'
 
 import "./styles.css"
-import { NotesList, NotingSection, Navbar } from '../components'
+import { NotesList, NotingSection} from '../components'
 
 const Home = () => {
   return (
-    <div className='bg'>
-      <Navbar />
-      <div className='page1'>
+      <div className='page'>
         <NotesList />
         <NotingSection />
       </div>
-    </div>
   )
 }
 
