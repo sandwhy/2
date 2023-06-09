@@ -34,10 +34,10 @@ export const saveCreateNote = (dos, dat) => async (dispatch) => {
     }
 }
 
-export const delNote = (dos, dat) => async(dispatch) => {
-    try {
-        const params = {data:dat}
-        const {data} = await api.fetchNote()
+export const delNote = (dat) => async(dispatch) => {
+    try {  
+        const {data} = await api.delNote({id:dat})
+        dispatch({type:"RESET_NOTE"})
     } catch (error) {
         console.log("from delNote", error)
     }

@@ -28,7 +28,6 @@ export const getNotes = async (req,res) => {
         res.status(200).json({data:notes})
     } catch (error) {
         res.status(404).json({message:error.message})
-        
     }
 }
 
@@ -36,7 +35,17 @@ export const getNote = async (req,res) => {
     try {
         const {id} = req.params
         const note = await NoteInstance.findById(id)
-        res.status(202).json({data:note})
+        res.status(200).json({data:note})
+    } catch (error) {
+        res.status(404).json({message:error.message})
+    }
+}
+
+export const delNote = async(req,res) => {
+    try {
+        const {id} = req.body
+        const ok = await NoteInstance.deleteOne({_id:id})
+        res.status(200).json({data:ok})
     } catch (error) {
         res.status(404).json({message:error.message})
     }
