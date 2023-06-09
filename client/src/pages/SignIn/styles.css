@@ -6,3 +6,44 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.switch {
+    background-color: var(--neutral-col);
+    width: 60%;
+    height: 4.5rem;
+    border-radius: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+}
+
+.switch_buttonhold {
+    grid-area: 1/1;
+    padding: 0.25rem 5%;
+}
+.switch_button {
+    height: 4rem;
+    background-color: var(--accent-col);
+    width: 50%;
+    border-radius: 1rem;
+    opacity: 0.4;
+}
+
+.switch_labels {
+    grid-area: 1/1;
+    display: flex;
+    height: inherit;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: rgba(0,0,0,0.4);
+    padding: 0.24rem 5%;
+}
+
+.switch_label {
+    height: 4rem;
+    background-color: var(--main-col);
+    width: 50%;
+    border-radius: 1rem;
+    text-align: center;
+    justify-content: center;
+}

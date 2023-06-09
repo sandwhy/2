@@ -6,12 +6,24 @@
     margin-left: auto;
     margin-right: auto;
 }
+/* .click-out {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+} */
 
 form {
     height: 100%;
     padding: 1rem 3.5rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+.textinput{
+    height: 100%;
+}
 .title_input {
     font-family: "jost", sans-serif ;
     font-weight: 500 !important;
@@ -20,10 +32,10 @@ form {
     background-color: rgba(0,0,0,0);
     height: 20%;
 }
-
 textarea {
-    height: 78%; 
+    height: 85%; 
     width: 100%;
+    margin-top:.3rem;
     border-style: none;
     border-color: Transparent;
     overflow: auto;
@@ -36,9 +48,16 @@ textarea {
     padding-top: 1rem;
 }
 
+.buttons {
+    display: flex;
+    position:relative;
+    bottom:2%;
+    width:100%;
+}
 .buttons button {
     position: relative;
     bottom: 0;
+    margin-right: 2rem;
     background-color: var(--accent-col);
+    width:6rem;
 }
-

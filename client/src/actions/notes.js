@@ -5,7 +5,7 @@ export const getNotes = () => async(dispatch) => {
     try {
         const {data} = await api.fetchNotes()
         // console.log(check)
-        console.log("cling data from actions", data.data)
+        // console.log("cling data from actions", data.data)
 
         // const dat = "ok"
         dispatch({type:"FETCH_ALL", payload:data})
@@ -14,7 +14,7 @@ export const getNotes = () => async(dispatch) => {
     }
 }
 export const getNote = (id) => async (dispatch) => {
-    console.log("getting notes local00000")
+    // console.log("getting notes local00000")
     try {
         const {data} = await api.fetchNote(id)
         // console.log("checking get note data:", data)
@@ -31,5 +31,14 @@ export const saveCreateNote = (dos, dat) => async (dispatch) => {
         dispatch({type:"FETCH_ONE", payload:data})
     } catch (error) {
         console.log("from saveCreateNote,", error)
+    }
+}
+
+export const delNote = (dos, dat) => async(dispatch) => {
+    try {
+        const params = {data:dat}
+        const {data} = await api.fetchNote()
+    } catch (error) {
+        console.log("from delNote", error)
     }
 }

@@ -28,7 +28,6 @@ function NotesList() {
 
     useEffect(() => {
         dispatch(getNotes())
-        console.log("deploying effect")
       },[])
 
     const click = (id) => {

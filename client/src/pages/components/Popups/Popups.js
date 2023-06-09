@@ -12,9 +12,7 @@ const Popups = (props) => {
     //     </div>
     // </div>
     // )
-    console.log("props", props)
-    if (props.ver == "passive") {
-        console.log("its passive")
+    if (props.ver === "passive") {
         return (
             <div className='popups back_passive '>
                 <div className='popups__card'>

@@ -14,7 +14,6 @@ const NotingSection = () => {
 
   useEffect(() => {
     setNoteDat({"id": currentNote._id?currentNote._id:"", "title": currentNote.title?currentNote.title:"", "note": currentNote.note?currentNote.note:""})
-
     if (currentNote._id) {
       setDos("Save")
     } else {
@@ -22,37 +21,54 @@ const NotingSection = () => {
     }
   }, [currentNote])
 
-  const click = () => {
+  const popclick = () => {
     setPops(!pops)
-    console.log("click,", pops)
+    setTimeout(() => {
+      setPops(pops)
+    }, 4000);
+  }
+
+  const delclick = () => {
+    console.log("check this out")
+    console.log("current note", currentNote.note)
+    console.log("written note", noteDat.note)
   }
 
   const handleSubmit = (async(event) => {
     event.preventDefault()
     const dat = {"id": currentNote._id, "title": noteDat.title, "note": noteDat.note}
-    click()
 
     await dispatch(saveCreateNote(dos, dat))
     await dispatch(getNotes())
   })
 
-  return (
+  return (    
     <div className='noting-section col-8'>
+      <div className='noting-section click-out'>
+
 
       <form onSubmit={handleSubmit}>
-        <input type='text' className='title_input' onChange={(e) => setNoteDat({...noteDat, title:e.target.value})} value={noteDat.title} placeholder='Title'/>
-        <textarea autoCapitalize='on' onChange={(e) => setNoteDat({...noteDat, note:e.target.value})} value={noteDat.note} placeholder="Note" spellCheck="false" style={{resize:"none"}}/>
+        <div className='textinput'>
+          <input type='text' className='title_input' onChange={(e) => setNoteDat({...noteDat, title:e.target.value})} value={noteDat.title} placeholder='Title'/>
+          <textarea id="text" autoCapitalize='on' onChange={(e) => setNoteDat({...noteDat, note:e.target.value})} value={noteDat.note} placeholder="Note" spellCheck="false" style={{resize:"none"}}/>
+        </div>
         <div className='buttons'>
-          <button className='button btn' type="submit" value="Submit">{dos}</button>
+          {currentNote.title === noteDat.title && currentNote.note === noteDat.note  ? (
+            <button className='button btn sub disabled' type="submit" value="Submit" onClick={popclick}>{dos}</button>
+          ):(
+            <button className='button btn sub' type="submit" value="Submit" onClick={popclick}>{dos}</button>
+          )}
+          {/* <button className='button btn sub' type="submit" value="Submit" onClick={popclick}>{dos}</button> */}
+          <button className='button btn del' value="Delete" onClick={delclick}>Delete</button>
         </div>
       </form>
 
       {pops && <Popups
         ver="passive"
         message={`Note ${dos}d`}
-        set={click}
+        set={popclick}
       />}
-
+      </div>
     </div>
   )
 }

@@ -20,7 +20,6 @@
 }
 
 .popups__close {
-    /* display: none; */
     grid-area: 1/1;
     font-size: 1.5rem;
     padding: 1rem 2rem;
