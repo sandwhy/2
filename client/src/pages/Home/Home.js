@@ -1,30 +1,19 @@
 import React, {useState} from 'react'
 
 import "./styles.css"
-import { NotesList, NotingSection } from '../components'
+import { NotesList, NotingSection, Notif } from '../components'
 
 const Home = () => {
   const notsec = document.getElementById("textarra")
   // console.log("check notsec", notsec)
-  // var isFocused = (document.activeElement === notsec);
+  var isFocused = (document.activeElement === notsec);
   // console.log(isFocused)
-  const [notif, setNotif] = useState(true)
+  const [notif, setNotif] = useState(false)
   return (
       <div className='page'>
-        {/* {notif ? (
-          <div className='notif active'>
-            <div></div>
-          </div>
-        ) : (
-          <div className='notif unactive'>
-            <div></div>
-          </div>
-        )} */}
-
+          <Notif set={notif} setNotif={setNotif} />
           <NotesList />
           <NotingSection />
-        {/* <div className='components'>
-        </div> */}
       </div>
   )
 }

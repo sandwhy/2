@@ -6,16 +6,21 @@
     margin-left: auto;
     margin-right: auto;
 }
-/* .click-out {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-
+/* .focus-background {
+    position:fixed;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    height:100vh;
+    width:100vw;
+    background-color: rgba(0,0,0,0);
+    z-index: 1;
 } */
 
 form {
+    margin: 1rem 3.5rem;
     height: 100%;
-    padding: 1rem 3.5rem;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,6 +28,7 @@ form {
 
 .textinput{
     height: 100%;
+    width: 100%;
 }
 .title_input {
     font-family: "jost", sans-serif ;
@@ -31,21 +37,20 @@ form {
     color: white;
     background-color: rgba(0,0,0,0);
     height: 20%;
+    border: groove, var(--accent2-col), 2px;
+    outline:none;
+    width: inherit;
 }
-textarea {
-    height: 85%; 
+#text {
+    height: 75%; 
     width: 100%;
-    margin-top:.3rem;
-    border-style: none;
-    border-color: Transparent;
     overflow: auto;
     outline: none;
+    background-color: rgba(0,0,0,0);
 
     color: white;
     font-family: "jost", sans-serif ;
     font-size: 2rem;
-
-    padding-top: 1rem;
 }
 
 .buttons {
@@ -55,7 +60,6 @@ textarea {
     width:100%;
 }
 .buttons button {
-    position: relative;
     bottom: 0;
     margin-right: 2rem;
     background-color: var(--accent-col);

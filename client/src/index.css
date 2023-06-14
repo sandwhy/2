@@ -7,7 +7,9 @@
 :root {
   --neutral-col: #F5EFE6;
   --main-col: #AEBDCA;
+  --main2-col: #AED6D4;
   --accent-col: #7895B2;
+  --accent2-col: #77BFBD;
 }
 
 .col-1 {width: 8.33%;}
@@ -32,4 +34,42 @@
   height: 100%;
   display: flex;
   align-items: center;
+}
+
+.bouton {
+  margin:0 ;
+  padding:0 ;
+  text-align: center;
+  letter-spacing: 1px;
+  cursor:pointer;
+  border-radius: 3px;
+  display:inline-block;
+  padding: 0 16px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  height: 2.3rem;
+  line-height: 2.3rem;
+  color: aliceblue;
+  font-size: 0.9rem;
+}
+
+.disabler {
+  display:none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.27);
+  border-radius: 2rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--accent2-col);
+  border-radius: 2ch;
 }

@@ -46,9 +46,7 @@ const NotingSection = () => {
 
   return (    
     <div className='noting-section col-8'>
-      <div className='noting-section click-out'>
-
-
+      <div className='noting-section area'>
       <form onSubmit={handleSubmit}>
         <div className='textinput'>
           <input type='text' className='title_input' onChange={(e) => setNoteDat({...noteDat, title:e.target.value})} value={noteDat.title} placeholder='Title'/>
@@ -56,15 +54,15 @@ const NotingSection = () => {
         </div>
         <div className='buttons'>
           {currentNote.title === noteDat.title && currentNote.note === noteDat.note ? (
-            <button className='button btn sub disabled' type="submit" value="Submit" onClick={popclick}>{dos}</button>
+            <button className='bouton sub' disabled type="submit" value="Submit" onClick={popclick}>{dos}</button>
           ):(
-            <button className='button btn sub' type="submit" value="Submit" onClick={popclick}>{dos}</button>
+            <button className='bouton sub' type="submit" value="Submit" onClick={popclick}>{dos}</button>
           )}
           {currentNote._id == null ?
           (
-          <button type="button" className='button btn del disabled' value="Delete" onClick={delclick}>Delete</button>
+          <button className='bouton del' disabled value="Delete" onClick={delclick}>Delete</button>
           ):(
-          <button type="button" className='button btn del' value="Delete" onClick={delclick}>Delete</button>
+          <button className='bouton del' value="Delete" onClick={delclick}>Delete</button>
           )}
         </div>
       </form>
