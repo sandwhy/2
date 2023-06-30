@@ -23,13 +23,15 @@ const NotingSection = () => {
   }, [currentNote])
 
   const popclick = () => {
-    setPops(!pops)
+    console.log("what thes hit")
+    setPops(true)
     setTimeout(() => {
-      setPops(pops)
+      setPops(false)
     }, 4000);
   }
 
   const delclick = async () => {
+    console.log("check things out")
     const dat = noteDat.id
     await dispatch(delNote(dat))
     await dispatch(getNotes())
@@ -54,13 +56,13 @@ const NotingSection = () => {
         </div>
         <div className='buttons'>
           {currentNote.title === noteDat.title && currentNote.note === noteDat.note ? (
-            <button className='bouton sub' disabled type="submit" value="Submit" onClick={popclick}>{dos}</button>
+            <button className='bouton sub naah' disabled type="submit" value="Submit" onClick={popclick}>{dos}</button>
           ):(
             <button className='bouton sub' type="submit" value="Submit" onClick={popclick}>{dos}</button>
           )}
           {currentNote._id == null ?
           (
-          <button className='bouton del' disabled value="Delete" onClick={delclick}>Delete</button>
+          <button className='bouton del naah' disabled value="Delete" onClick={delclick}>Delete</button>
           ):(
           <button className='bouton del' value="Delete" onClick={delclick}>Delete</button>
           )}

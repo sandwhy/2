@@ -8,7 +8,7 @@ const Home = () => {
   // console.log("check notsec", notsec)
   var isFocused = (document.activeElement === notsec);
   // console.log(isFocused)
-  const [notif, setNotif] = useState(false)
+  const [notif, setNotif] = useState(true)
   return (
       <div className='page'>
           <Notif set={notif} setNotif={setNotif} />

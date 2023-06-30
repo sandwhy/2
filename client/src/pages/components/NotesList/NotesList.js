@@ -47,14 +47,16 @@ function NotesList() {
                 <div id="section" className='side-nav__body'>
                     <div className='side-nav__container'>
                         <div className='side-nav__container__header'>Existing notes:</div>
-                        <li key="newnotebtn" className='side-nav__container__li'>
-                            <button className='btn-flat side-nav__container__button new-note-button' onClick={newnoteclk}>+</button>
-                        </li>
-                        {notes.map((item) => 
-                            <li key={item._id} className='side-nav__container__li'>
-                                <button className='btn-flat side-nav__container__button' id={item._id} onClick={() => click(item._id)}>{item.title.trim()}</button>
+                        <ul>
+                            <li key="newnotebtn" className='side-nav__container__li'>
+                                <div className='btn-flat side-nav__container__button new-note-button' onClick={newnoteclk}>+</div>
                             </li>
-                        )}
+                            {notes.map((item) => 
+                                <li key={item._id} className='side-nav__container__li'>
+                                    <button className='btn-flat side-nav__container__button' id={item._id} onClick={() => click(item._id)}>{item.title.trim()}</button>
+                                </li>
+                            )}
+                        </ul>
                         {/* <li key="newn" className='side-nav__container__li'>
                             <button className='btn-flat side-nav__container__button new-note-button' onClick={checklist}>+</button>
                         </li> */}

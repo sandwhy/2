@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import noteRoutes from "./routes/notes.js"
 import userRoutes from "./routes/users.js"
 
+
 const app = express()
 dotenv.config()
 

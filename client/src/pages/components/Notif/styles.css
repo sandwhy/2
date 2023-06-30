@@ -1,5 +1,6 @@
 .notif__bg {
     position: absolute;
+    display: flex;
     top:0;
     left:0;
     height: 100vh;
@@ -10,9 +11,12 @@
 }
 
 .notif__content {
+    display: flex;
     height: 30vh;
     width: 30vw;
     border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
     background-color: var(--main-col);
     opacity: 1;
 }

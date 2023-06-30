@@ -1,6 +1,7 @@
 import axios from "axios"
-// baseURL:process.env.DEVURL
-const API = axios.create({baseURL:"http://localhost:5000"})
+
+const URL = process.env.REACT_APP_URL
+const API = axios.create({baseURL:URL})
 
 export const fetchNotes = () => API.get("/notes")
 export const fetchNote = (id) => API.get(`/notes/${id}`)
